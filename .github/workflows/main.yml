@@ -56,6 +56,12 @@ jobs:
         mkdir -p gh-pages/last-history
         touch gh-pages/last-history/.keep
 
+      # Копируем историю из gh-pages/last-history в allure-results/history
+    - name: Copy history from gh-pages/last-history to allure-results/history
+      if: always()
+      run: |
+        cp -r gh-pages/last-history/* allure-results/history/ || true
+
     - name: Generate Allure Report
       if: always()
       uses: simple-elf/allure-report-action@master
