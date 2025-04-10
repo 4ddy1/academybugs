@@ -49,6 +49,13 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
+    # Создаем директорию gh-pages/last-history, если она отсутствует
+    - name: Ensure gh-pages/last-history exists
+      if: always()
+      run: |
+        mkdir -p gh-pages/last-history
+        touch gh-pages/last-history/.keep
+
     - name: Generate Allure Report
       if: always()
       uses: simple-elf/allure-report-action@master
