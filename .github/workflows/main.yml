@@ -56,7 +56,7 @@ jobs:
       with:
         allure_results: allure-results
         allure_report: allure-report
-        allure_history: gh-pages/history
+        allure_history: gh-pages/last-history
         keep_reports: 20
 
       # Формируем из allure-results отчет allure-report
