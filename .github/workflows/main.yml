@@ -82,3 +82,9 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: allure-report
         publish_branch: gh-pages
+
+    # Копируем новую историю в gh-pages/last-history
+    - name: Copy new history to gh-pages/last-history
+      if: always()
+      run: |
+        cp -r allure-report/history/* gh-pages/last-history/ || true
