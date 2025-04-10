@@ -49,20 +49,13 @@ jobs:
         ref: gh-pages
         path: gh-pages
 
-    # Создаем директорию gh-pages/last-history, если она отсутствует
-    - name: Ensure gh-pages/last-history exists
-      if: always()
-      run: |
-        mkdir -p gh-pages/last-history
-        touch gh-pages/last-history/.keep
-
       # Копируем историю из gh-pages/last-history в allure-results/history
     - name: Copy history from gh-pages/last-history to allure-results/history
       if: always()
       run: |
         rm -rf allure-results/history || true
         mkdir -p allure-results/history
-        cp -r gh-pages/last-history/* allure-results/history/ || true
+        cp -r gh-pages/history/* allure-results/history/ || true
 
     - name: Generate Allure Report
       if: always()
@@ -71,7 +64,7 @@ jobs:
       with:
         allure_results: allure-results
         allure_report: allure-report
-        allure_history: gh-pages/last-history
+        allure_history: gh-pages/history
         keep_reports: 20
 
       # Формируем из allure-results отчет allure-report
@@ -82,9 +75,3 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: allure-report
         publish_branch: gh-pages
-
-    # Копируем новую историю в gh-pages/last-history
-    - name: Copy new history to gh-pages/last-history
-      if: always()
-      run: |
-        cp -r allure-report/history/* gh-pages/last-history/ || true
