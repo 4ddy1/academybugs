@@ -38,14 +38,6 @@ jobs:
         path: allure-results
         retention-days: 20
 
-    # забираем результаты предыдущего запуска отчета allure
-    - uses: actions/checkout@v4
-      if: always()
-      continue-on-error: true
-      with:
-        ref: gh-pages
-        path: gh-pages
-
     # Формируем из allure-results отчет allure-report
     - uses: simple-elf/allure-report-action@master
       if: always()
