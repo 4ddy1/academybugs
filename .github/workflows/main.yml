@@ -60,6 +60,8 @@ jobs:
     - name: Copy history from gh-pages/last-history to allure-results/history
       if: always()
       run: |
+        rm -rf allure-results/history || true
+        mkdir -p allure-results/history
         cp -r gh-pages/last-history/* allure-results/history/ || true
 
     - name: Generate Allure Report
