@@ -7,6 +7,8 @@ on:
     branches: [ main, master ]
 permissions:
   contents: write  # Нужно для деплоя в gh-pages
+env:
+  MAIN_URL: ${{ vars.MAIN_URL }}
 jobs:
   test:
     timeout-minutes: 60
