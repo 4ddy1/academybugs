@@ -1,0 +1,50 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: Main page >> pagination 50 click
+- Location: /home/runner/work/academybugs/academybugs/tests/mainPage.spec.js:7:7
+
+# Error details
+
+```
+Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+Call log:
+  - navigating to "", waiting until "domcontentloaded"
+
+    at Crash.open (/home/runner/work/academybugs/academybugs/src/pages/crash.js:13:25)
+    at /home/runner/work/academybugs/academybugs/tests/mainPage.spec.js:10:20
+```
+
+# Test source
+
+```ts
+   1 | import * as pages from './index';
+   2 |
+   3 | export class Crash {
+   4 |     constructor(page) {
+   5 |         this.page = page;
+   6 |         this.acceptButton = this.page.getByRole('button', { name: 'Accept cookies' });
+   7 |         this.paginationOver = this.page.getByRole('link', { name: '50' });
+   8 |         this.paginationAbove = this.page.locator('a.what-we-offer-pagination-link').filter({ hasText: '10' });
+   9 |         this.crashForm = this.page.getByRole('heading', { name: 'You found a crash bug,' });
+  10 |     }
+  11 |
+  12 |     async open(url) {
+> 13 |         await this.page.goto(url, { waitUntil: 'domcontentloaded' });
+     |                         ^ Error: page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL
+  14 |     }
+  15 |
+  16 |     async pagination() {
+  17 |         await this.paginationOver.click();
+  18 |     }
+  19 |
+  20 |     async pagination1() {
+  21 |         await this.paginationAbove.click();
+  22 |     }
+  23 | }
+```
