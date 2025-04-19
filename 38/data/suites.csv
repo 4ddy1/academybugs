@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1801","pagination 50 click","chromium","Sat Apr 19 11:06:34 GMT 2025","passed","Sat Apr 19 11:06:36 GMT 2025","Main page","mainPage.spec.js","",""
+"","3825","imageClick","chromium","Sat Apr 19 11:06:39 GMT 2025","passed","Sat Apr 19 11:06:43 GMT 2025","Main page","mainPage.spec.js","",""
+"","12335","Product comment","chromium","Sat Apr 19 11:06:48 GMT 2025","passed","Sat Apr 19 11:07:01 GMT 2025","Product page","productPage.spec.js","",""
+"","2747","pagination 10 click","chromium","Sat Apr 19 11:06:36 GMT 2025","passed","Sat Apr 19 11:06:39 GMT 2025","Main page","mainPage.spec.js","",""
+"","4664","twitter click","chromium","Sat Apr 19 11:06:43 GMT 2025","passed","Sat Apr 19 11:06:48 GMT 2025","Product page","productPage.spec.js","",""
