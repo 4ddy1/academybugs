@@ -6,6 +6,7 @@ export class Crash {
         this.acceptButton = this.page.getByRole('button', { name: 'Accept cookies' });
         this.paginationOver = this.page.getByRole('link', { name: '50' });
         this.paginationAbove = this.page.locator('a.what-we-offer-pagination-link').filter({ hasText: '10' });
+        this.crashForm = this.page.getByRole('heading', { name: 'You found a crash bug,' });
     }
 
     async open(url) {

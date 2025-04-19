@@ -25,6 +25,6 @@ test.describe.serial('Product page', () => {
     await visual.cardLinkCheck();
     await product.addComment("adilTest");
 
-    await expect(product.mistakeMessage).toBeVisible({timeout:25000});
+    await expect(product.mistakeMessage).toBeVisible();
   });
 });

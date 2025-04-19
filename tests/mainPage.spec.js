@@ -10,7 +10,7 @@ test.describe.serial('Main page', () => {
     await mainPage.open(process.env.MAIN_URL);
     await mainPage.pagination();
 
-    await expect(page.getByRole('heading', { name: 'You found a crash bug,' })).toBeVisible();
+    await expect(mainPage.crashForm).toBeVisible();
   });
 
   test('pagination 10 click', async ({ page }) => {
@@ -19,7 +19,7 @@ test.describe.serial('Main page', () => {
     await mainPage.open(process.env.MAIN_URL);
     await mainPage.pagination1();
 
-    await expect(page.getByRole('heading', { name: 'You found a crash bug,' })).toBeVisible();
+    await expect(mainPage.crashForm).toBeVisible();
   });
 
   test('imageClick', async ({ page }) => {
