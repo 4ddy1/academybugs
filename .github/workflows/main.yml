@@ -21,7 +21,7 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Set environment variables
-      run: echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
+      run: echo "MAIN_URL=${{ secrets.MAIN_URL }}" >> $GITHUB_ENV
     - name: Run Playwright tests
       run: npx playwright test
 
